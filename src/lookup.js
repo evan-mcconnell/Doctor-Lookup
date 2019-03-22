@@ -50,16 +50,18 @@ export class Doctor {
 }
 
 export class Practice {
-  constructor (street, city, state, zip, phoneType, number) {
+  constructor (street, city, state, zip, phoneType, number, web, street2) {
     this.street = street,
     this.city = city,
     this.state = state,
     this.zip = zip,
     this.phoneType = phoneType,
-    this.number = number
+    this.number = number,
+    this.web = web,
+    this.street2 = street2
   }
   displayPractice() {
-    return `<address class="doc-address">${this.street}${this.street2}<br>${this.city}, ${this.state} ${this.zip}</address><p class="doc-phone">${this.phoneType} ${this.number}</p><a href="${this.website}"></a>`
+    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state} ${this.zip}</address><p class="doc-phone">${this.phoneType} ${this.number}</p><a href="${this.web}">${this.web}</a>`
   }
 }
 
