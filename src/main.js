@@ -20,8 +20,8 @@ $(document).ready(function() {
       const docList = docLookup.getList(body.data);
       docList.length === 0 ? alert("There are no doctors that meet your search criteria") : true;
 
+      let counter = 0;
       docList.forEach((doc) => {
-        let counter = 0;
         const doctor = new Doctor(doc.profile.first_name, doc.profile.last_name, doc.profile.title);
         $("#docs-in-area-list").append(`<li id="doctor${counter}">${doctor.displayCard()}</li>`);
 
@@ -30,8 +30,9 @@ $(document).ready(function() {
           practice.website ? pract["web"] = practice.website : pract["web"] = "";
           practice.visit_address.street2 ? pract["street2"] = practice.visit_address.street2 : pract["street2"] = "";
           practice.accepts_new_patients ? pract["acceptsNew"] = `This office is accepting new patients.` : pract["acceptsNew"] = `This office is not accepting new patients at this time.`;
-          $("#docs-in-area-list").append(`<div>${pract.displayPractice()}</div>`);
+          $(`#doctor${counter}`).append(`<div>${pract.displayPractice()}</div>`);
         });
+        counter++;
       });
     });
   });

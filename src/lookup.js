@@ -1,5 +1,5 @@
 
-
+//
 // export class DoctorsByCondition {
 //   getDoctorList(name,cond) {
 //     return new Promise(function(resolve, reject) {
@@ -48,7 +48,7 @@ export class Practice {
     this.street2 = street2
   }
   displayPractice() {
-    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p><a href="${this.web}">${this.web}</a><br><p>${this.acceptsNew}</p>`
+    return `<h5>Practices:</h5><address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p><a href="${this.web}">${this.web}</a><br><p>${this.acceptsNew}</p>`
   }
   newPatients(accept) {
     if (accept === true) {

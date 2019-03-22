@@ -41,14 +41,26 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .search-form {
   background-image: url("./../assets/img/healthcare.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  @include min-max-height(550px, 650px);
+  width: 100%;
+  @include tablet {
+    @include min-max-height(550px, 650px);
+  }
+  @include tablet-landscape {
+    @include min-max-width(800px, 1000px);
+  }
+  @include desktop {
+    @include min-max-width(1000px, 1400px);
+  }
+
+
   #doctor-search {
     display: flex;
     flex-flow: column nowrap;
@@ -78,3 +90,58 @@ body {
     }
   }
 }
+
+#docs-in-area-list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  li {
+    margin-top: 6vw;
+    padding-left: 2vw;
+    list-style: none;
+    min-width: 200px;
+    width: 45%;
+    @include desktop {
+      width: 30%;
+    }
+    h4{
+      text-decoration: underline;
+    }
+  }
+
+  address {
+    margin: 0 0 3px 10px;
+    line-height: 100%;
+  }
+  a {
+    color: darken($background-color, 70%);
+    &:hover {
+      color: darken($background-color, 40%);
+    }
+  }
+  p {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+  .doc-phone {
+    margin-bottom: 0;
+    font-size: 1.2em;
+    font-style: normal;
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//
