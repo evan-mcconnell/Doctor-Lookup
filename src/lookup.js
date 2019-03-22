@@ -42,12 +42,26 @@ export class Doctor {
     this.first = first,
     this.last = last,
     this.title = title,
+    this.practices = []
+  }
+  displayCard() {
+    return `<h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4>`
+  }
+}
+
+export class Practice {
+  constructor (street, city, state, zip, phoneType, number) {
     this.street = street,
     this.city = city,
     this.state = state,
-    this.zip = zip
+    this.zip = zip,
+    this.phoneType = phoneType,
+    this.number = number
   }
-  displayCard() {
-    return `<li><h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4><address class="doc-address">${this.street}<br>${this.city}, ${this.state} ${this.zip}</address></li>`
+  displayPractice() {
+    return `<address class="doc-address">${this.street}${this.street2}<br>${this.city}, ${this.state} ${this.zip}</address><p class="doc-phone">${this.phoneType} ${this.number}</p><a href="${this.website}"></a>`
   }
 }
+
+// <p>${newPatientList.toString().replace(/,/g, '')}</p>
+//
