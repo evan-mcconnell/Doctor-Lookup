@@ -23,6 +23,7 @@ export class DoctorsByCondition {
     });
     return doctors;
   }
+
   newPatients(practices) {
     let newP = [];
     practices.forEach((pract) => {
@@ -33,5 +34,20 @@ export class DoctorsByCondition {
       }
     });
     return newP;
+  }
+}
+
+export class Doctor {
+  constructor (first, last, title, street, city, state, zip) {
+    this.first = first,
+    this.last = last,
+    this.title = title,
+    this.street = street,
+    this.city = city,
+    this.state = state,
+    this.zip = zip
+  }
+  displayCard() {
+    return `<li><h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4><address class="doc-address">${this.street}<br>${this.city}, ${this.state} ${this.zip}</address></li>`
   }
 }
