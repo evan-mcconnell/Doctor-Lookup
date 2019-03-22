@@ -23,4 +23,13 @@ export class DoctorsByCondition {
     });
     return doctors;
   }
+  // newPatients(practices) {
+  //   practices.forEach((pract) => {
+  //     if (pract.accepts_new_patients === true) {
+  //       return `The office at ${pract.visit_address.street} in ${pract.visit_address.city} is accepting new patients. We'd be happy to schedule you!`
+  //     } else {
+  //       return `The office at ${pract.visit_address.street} in ${pract.visit_address.city} is not accepting new patients at this time.`
+  //     }
+  //   });
+  // }
 }
