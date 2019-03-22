@@ -2,16 +2,17 @@ import 'bootstrap';
 import 'bootstrap/scss/bootstrap.scss';
 import $ from 'jquery';
 import './sass/styles.scss';
-import { pingPong } from './webpack-template';
+import { DoctorsByCondition } from './webpack-template';
 
 $(document).ready(function() {
-  $('#ping-pong-form').submit(function(event) {
-    event.preventDefault();
-    var goal = $('#goal').val();
-    var output = pingPong(goal);
-    output.forEach(function(element) {
-      $('#solution').append("<li>" + element + "</li>");
+  let docLookup = new DoctorsByCondition();
+  let promise2 = getDoctorList(name, cond);
+
+  promise2.then((response) => {
+    let body = JSON.parse(response);
+    docList = docLookup.getDoctorList(body.drinks);
+    docList.forEach( (doc) => {
+
     });
   });
-  console.log("hi");
 });
