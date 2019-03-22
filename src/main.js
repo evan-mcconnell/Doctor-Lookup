@@ -29,7 +29,7 @@ $(document).ready(function() {
 
         doc.practices.forEach((practice) => {
           const pract = new Practice(practice.visit_address.street, practice.visit_address.city, practice.visit_address.state, practice.visit_address.zip, practice.phones[0].number);
-          practice.website ? pract["web"] = practice.website : pract["web"] = "";
+          practice.website ? pract["web"] = `<a href="${practice.website}">${practice.website}</a>` : pract["web"] = "";
           practice.visit_address.street2 ? pract["street2"] = practice.visit_address.street2 : pract["street2"] = "";
           practice.accepts_new_patients ? pract["acceptsNew"] = `This office is accepting new patients.` : pract["acceptsNew"] = `This office is not accepting new patients at this time.`;
           $(`#doctor${counter}`).append(`<div>${pract.displayPractice()}</div>`);

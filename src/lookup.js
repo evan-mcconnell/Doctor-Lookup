@@ -33,7 +33,7 @@ export class Doctor {
     this.practices = []
   }
   displayCard() {
-    return `<h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4>`
+    return `<h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4><h5>Practices:</h5>`
   }
 }
 
@@ -48,7 +48,7 @@ export class Practice {
     this.street2 = street2
   }
   displayPractice() {
-    return `<h5>Practices:</h5><address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p><a href="${this.web}">${this.web}</a><br><p>${this.acceptsNew}</p>`
+    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p>${this.web}<p class="accepts-new">${this.acceptsNew}</p>`
   }
   newPatients(accept) {
     if (accept === true) {

@@ -143,16 +143,14 @@ body {
       color: darken($background-color, 40%);
     }
   }
-  p {
+  .accepts-new {
     font-size: 0.9em;
     font-style: italic;
     margin-bottom: 30px;
   }
   .doc-phone {
-    margin-bottom: 0;
     font-size: 1.2em;
-    font-style: normal;
-    margin-bottom: 0;
+    margin: 4px;
   }
 }
 
