@@ -9,6 +9,8 @@ $(document).ready(function() {
 
   $("#doctor-search").submit(function(event) {
     event.preventDefault();
+    $("#docs-in-area-list").empty();
+    $(".no-result").hide();
     const cond = $("#condition").val();
     const name = $("#doctor").val();
 
@@ -18,7 +20,7 @@ $(document).ready(function() {
     promise1.then((response) => {
       const body = JSON.parse(response);
       const docList = docLookup.getList(body.data);
-      docList.length === 0 ? alert("There are no doctors that meet your search criteria") : true;
+      docList.length === 0 ? $(".no-result").show() : true;
 
       let counter = 0;
       docList.forEach((doc) => {
@@ -37,14 +39,3 @@ $(document).ready(function() {
     });
   });
 });
-
-
-
-
-
-
-
-
-
-
-///

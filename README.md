@@ -9,7 +9,6 @@ _Author_ **Kim McConnell**
 1. [Learning Objective](#learning-objective)
 1. [Target Audience/Users](#target-audience/users)
 1. [Product Requirements](#product-requirements)
-1. [Non-technical Requirements](#non-technical-requirements)
 1. [Development Specs](#development-specs)
 1. [Stretch Goals](#stretch-goals)
 1. [Installation](#installation)
@@ -18,7 +17,7 @@ _Author_ **Kim McConnell**
 1. [License](#license)
 
 ### Description
-A website using an API for www.thecocktaildb.com, letting the user select a cocktail based on entry criteria. Created for Epicodus Front End Development course.
+A website using the Better Doctor API that allows the user to enter seartch parameters for name and ailment. Created for Epicodus Front End Development course.
 
 ### Learning Objective
 Use API to get information and deliver it to the user. Search through information to deliver only relevant info. Separate business logic from UI logic. Hide API keys in a .env file.
