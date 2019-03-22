@@ -1,41 +1,29 @@
 
 
-export class DoctorsByCondition {
-  getDoctorList(name,cond) {
-    return new Promise(function(resolve, reject) {
-      let request = new XMLHttpRequest();
-      let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${cond}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
-      request.onload = function() {
-        if (this.status === 200) {
-          resolve(request.response);
-        } else {
-          reject(Error(request.statusText));
-        }
-      }
-      request.open("GET", url, true);
-      request.send();
-    });
-  }
-  getList(doc) {
-    const doctors = [];
-    doc.forEach((doc) => {
-      doctors.push(doc);
-    });
-    return doctors;
-  }
-
-  newPatients(practices) {
-    let newP = [];
-    practices.forEach((pract) => {
-      if (pract.accepts_new_patients === true) {
-        newP.push(`The office at ${pract.visit_address.street} in ${pract.visit_address.city} is accepting new patients.<br>`);
-      } else {
-        newP.push(`The office at ${pract.visit_address.street} in ${pract.visit_address.city} is not accepting new patients at this time.<br>`);
-      }
-    });
-    return newP;
-  }
-}
+// export class DoctorsByCondition {
+//   getDoctorList(name,cond) {
+//     return new Promise(function(resolve, reject) {
+//       let request = new XMLHttpRequest();
+//       let url = `https://api.betterdoctor.com/2016-03-01/doctors?name=${name}&query=${cond}&location=or-portland&user_location=37.773%2C-122.413&skip=0&limit=10&user_key=${process.env.exports.apiKey}`;
+//       request.onload = function() {
+//         if (this.status === 200) {
+//           resolve(request.response);
+//         } else {
+//           reject(Error(request.statusText));
+//         }
+//       }
+//       request.open("GET", url, true);
+//       request.send();
+//     });
+//   }
+//   getList(doc) {
+//     const doctors = [];
+//     doc.forEach((doc) => {
+//       doctors.push(doc);
+//     });
+//     return doctors;
+//   }
+// }
 
 export class Doctor {
   constructor (first, last, title, street, city, state, zip) {
@@ -50,18 +38,24 @@ export class Doctor {
 }
 
 export class Practice {
-  constructor (street, city, state, zip, phoneType, number, web, street2) {
+  constructor (street, city, state, zip, number, web, street2) {
     this.street = street,
     this.city = city,
     this.state = state,
     this.zip = zip,
-    this.phoneType = phoneType,
     this.number = number,
     this.web = web,
     this.street2 = street2
   }
   displayPractice() {
-    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state} ${this.zip}</address><p class="doc-phone">${this.phoneType} ${this.number}</p><a href="${this.web}">${this.web}</a>`
+    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p><a href="${this.web}">${this.web}</a><br><p>${this.acceptsNew}</p>`
+  }
+  newPatients(accept) {
+    if (accept === true) {
+      return `This office is accepting new patients.`;
+    } else {
+      return `This office is not accepting new patients at this time.`;
+    }
   }
 }
 

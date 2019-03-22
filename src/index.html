@@ -2,17 +2,22 @@
 <html>
 <head>
   <title>Doctor Lookup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-  <form id="doctor-search">
-    <label for="condition">What ails you?</label>
-    <input id="condition" type="text" placeholder="Condition you need treatment for (i.e pain):">
-    <label for="doctor">If you are looking for a specific doctor, enter his/her name here</label>
-    <input id="doctor" type="text" placeholder="i.e. Jones">
-    <button id="search-button" type="submit">Submit</button>
-  </form>
-  <ul id="docs-in-area-list"></ul>
-
+  <div class="container">
+    <div class="search-form">
+      <form id="doctor-search">
+        <label for="condition">What ails you?</label>
+        <input id="condition" type="text" placeholder="Condition you need treatment for (i.e pain):">
+        <label for="doctor">If you are looking for a specific doctor, enter his/her name here</label>
+        <input id="doctor" type="text" placeholder="i.e. Jones">
+        <button id="search-button" type="submit">Submit</button>
+      </form>
+    </div>
+    <ul id="docs-in-area-list"></ul>
+  </div>
 </body>
 </html>
 
