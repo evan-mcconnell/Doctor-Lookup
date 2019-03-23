@@ -15,26 +15,24 @@ $(document).ready(function() {
     const name = $("#doctor").val();
 
     const docLookup = new DoctorsByCondition();
-    const promise1 = docLookup.getDoctorList(name, cond);
+    const promise = docLookup.getDoctorList(name, cond);
 
-    promise1.then((response) => {
+    promise.then((response) => {
       const body = JSON.parse(response);
-      const docList = docLookup.getList(body.data);
+      const docList = body.data;
       docList.length === 0 ? $(".no-result").show() : true;
 
-      let counter = 0;
-      docList.forEach((doc) => {
+      docList.forEach((doc, index) => {
         const doctor = new Doctor(doc.profile.first_name, doc.profile.last_name, doc.profile.title);
-        $("#docs-in-area-list").append(`<li id="doctor${counter}">${doctor.displayCard()}</li>`);
+        $("#docs-in-area-list").append(`<li id="doctor${index}">${doctor.display()}</li>`);
 
         doc.practices.forEach((practice) => {
           const pract = new Practice(practice.visit_address.street, practice.visit_address.city, practice.visit_address.state, practice.visit_address.zip, practice.phones[0].number);
           practice.website ? pract["web"] = `<a href="${practice.website}">${practice.website}</a>` : pract["web"] = "";
           practice.visit_address.street2 ? pract["street2"] = practice.visit_address.street2 : pract["street2"] = "";
           practice.accepts_new_patients ? pract["acceptsNew"] = `This office is accepting new patients.` : pract["acceptsNew"] = `This office is not accepting new patients at this time.`;
-          $(`#doctor${counter}`).append(`<div>${pract.displayPractice()}</div>`);
+          $(`#doctor${index}`).append(`<div>${pract.display()}</div>`);
         });
-        counter++;
       });
     });
   });

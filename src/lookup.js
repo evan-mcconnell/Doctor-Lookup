@@ -16,13 +16,6 @@ export class DoctorsByCondition {
       request.send();
     });
   }
-  getList(doc) {
-    const doctors = [];
-    doc.forEach((doc) => {
-      doctors.push(doc);
-    });
-    return doctors;
-  }
 }
 
 export class Doctor {
@@ -32,8 +25,9 @@ export class Doctor {
     this.title = title,
     this.practices = []
   }
-  displayCard() {
-    return `<h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4><h5>Practices:</h5>`
+  display() {
+    return `<h4 class="doc-name">${this.first} ${this.last}, ${this.title}</h4>\
+    <h5>Practices:</h5>`
   }
 }
 
@@ -47,8 +41,17 @@ export class Practice {
     this.web = web,
     this.street2 = street2
   }
-  displayPractice() {
-    return `<address class="doc-address">${this.street}<br>${this.street2}<br>${this.city}, ${this.state}<br> ${this.zip}</address><p class="doc-phone">${this.number}</p>${this.web}<p class="accepts-new">${this.acceptsNew}</p>`
+  // renderWebsite() {
+  //   practice.website ? pract["web"] = `<a href="${practice.website}">${practice.website}</a>` : pract["web"] = "";
+  // }
+  display() {
+    return `<address class="doc-address">${this.street}\
+      <br>${this.street2}\
+      <br>${this.city}, ${this.state}\
+      <br> ${this.zip}</address>\
+      <p class="doc-phone">${this.number}</p>\
+      ${this.web}\
+      <p class="accepts-new">${this.acceptsNew}</p>`
   }
   newPatients(accept) {
     if (accept === true) {
