@@ -2,7 +2,7 @@ import 'bootstrap';
 import 'bootstrap/scss/bootstrap.scss';
 import $ from 'jquery';
 import './sass/styles.scss';
-import { DoctorsByCondition, Doctor, Practice } from './lookup';
+import { getDoctorList, Doctor, Practice } from './lookup';
 
 
 $(document).ready(function() {
@@ -14,8 +14,7 @@ $(document).ready(function() {
     const cond = $("#condition").val();
     const name = $("#doctor").val();
 
-    const docLookup = new DoctorsByCondition();
-    const promise = docLookup.getDoctorList(name, cond);
+    const promise = getDoctorList(name, cond);
 
     promise.then((response) => {
       const body = JSON.parse(response);
